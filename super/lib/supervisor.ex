@@ -1,23 +1,16 @@
 defmodule Super.Supervisor do
-   use Supervisor
-   require Logger
+  use Supervisor
+  require Logger
 
-   def start_link(args) do
-    Supervisor.start_link(__MODULE__, [args], name: __MODULE__)
-   end
+  def start_link do
+    Supervisor.start_link(__MODULE__, [])
+  end
 
-   def init(_args) do
-    Supervisor.init(children(), strategy: :rest_for_one)
-   end
-
-   def children() do
-     [
-       Plug.Adapters.Cowboy.child_spec(
-        scheme: :http,
-        plug: Super.Router,
-        options: [port: 4433]
-       )
-     ]
-   end
-
+  def init(_) do
+    children = [
+      worker(Super.Server, [], restart: :temporary),
+      worker(Super.Client, [], restart: :temporary)
+    ]
+    supervise(children, strategy: :rest_for_one)
+  end
 end

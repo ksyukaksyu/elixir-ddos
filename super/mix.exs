@@ -19,9 +19,9 @@ defmodule Super.MixProject do
 
   defp deps do
     [
-       {:cowboy, "~> 1.0"},
-       {:plug_cowboy, "~> 1.0"},
-       {:plug, "~> 1.5"},
+      {:cowboy, "~> 1.1.2"},
+      {:plug, "~> 1.3.4"},
+      {:httpoison, "~> 1.5"}
     ]
   end
 end
