@@ -1,21 +1,9 @@
 # Super
 
-**TODO: Add description**
+**Запуск**
 
-## Installation
+В корне проекта `iex -S mix`
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `super` to your list of dependencies in `mix.exs`:
+**Как работает**
 
-```elixir
-def deps do
-  [
-    {:super, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/super](https://hexdocs.pm/super).
-
+Одновременно стартуют сервер и клиент. Сервер живет 3 минуты, выводит к-во запросов, которые в него успели прилететь, умирает. Клиент насовывает запросы до тех пор, пока сервер отвечает, когда перестает отвечать - останавливается.
