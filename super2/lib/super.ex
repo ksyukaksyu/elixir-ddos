@@ -58,7 +58,7 @@ defmodule Super do
       slava: "male"
     ]
   }
-  iex> Super.courses_for_girls(list)  
+  iex> Super.courses_for_girls(list)
   %{
     alica: "геометрия",
     kseniya: "алгебра",
@@ -93,6 +93,24 @@ defmodule Super do
          end
       end)
 
+  end
+
+  def fizz_buzz_case(n) do
+    case {rem(n, 3), rem(n, 5)} do
+      {0, 0} -> "FizzBuzz"
+      {0, _} -> "Fizz"
+      {_, 0} -> "Buzz"
+      _ -> "catch all"
+    end
+  end
+
+  def fizz_buzz_cond(n) do
+    cond do
+      rem(n, 3) == 0 && rem(n, 5) == 0 -> "FizzBuzz"
+      rem(n, 3) == 0 -> "Fizz"
+      rem(n, 5) == 0 -> "Buzz"
+      true -> "Успешно"
+    end
   end
 
 end
