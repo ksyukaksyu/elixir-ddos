@@ -58,19 +58,7 @@ defmodule Super do
       slava: "male"
     ]
   }
-  iex> Super.courses_for_girls(list)
-  1
-  {:alica, "female"}
-  2
-  {:sasha, "female"}
-  0
-  {:larisa, "female"}
-  1
-  {:olga, "female"}
-  2
-  {:vika, "female"}
-  0
-  {:kseniya, "female"}
+  iex> Super.courses_for_girls(list)  
   %{
     alica: "геометрия",
     kseniya: "алгебра",
@@ -98,8 +86,6 @@ defmodule Super do
 
   def courses_for_girls(list) do
       List.foldl(Enum.with_index(sort_by_sex(list).class_a), %{ }, fn {k, v}, map ->
-        IO.inspect(rem(v + 1, 3))
-        IO.inspect(k)
          if rem(v + 1, 3) === 0 do
            Map.put(map, elem(k, 0), "алгебра")
          else
